@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .outer{
+            position: relative;
+            width: 200px;
+            height: 100px;
+            border-radius: 100px 100px 0 0;
+            overflow: hidden;
+            background-color: #fff;
+            border: 2px solid #f5f5f9;
+        }
+        .circle{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            transform: rotate(-50deg);
+            clip: rect(0px,200px,100px,0px);/* 这个clip属性用来绘制半圆，在clip的rect范围内的内容显示出来，使用clip属性，元素必须是absolute的 */
+            border-radius: 100px;
+            background-color: red;
+            /*-webkit-animation: an1 2s infinite linear;*/
+        }
+        .top{
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 188px;
+            height: 94px;
+            margin-left: -94px;
+            border-radius: 94px 94px 0 0;
+            box-sizing: border-box;
+            background-color: #fff;
+        }
+        .bottom{
+            position: relative;
+            width: 204px;
+            height: 102px;
+            border-radius: 0px 0px 102px 102px;
+            overflow: hidden;
+            background-color: #f5f5f9;
+            /*border: 2px solid #f5f5f9;*/
+        }
+        .circle2{
+            position: absolute;
+            width: 204px;
+            height: 102px;
+            border-radius: 0px 0px 102px 102px;
+            transform-origin: center top;
+            transform: rotate(-50deg);
+            /*clip: rect(0px,200px,100px,0px);!* 这个clip属性用来绘制半圆，在clip的rect范围内的内容显示出来，使用clip属性，元素必须是absolute的 *!*/
+            /*border-radius: 100px;*/
+            background-color: blue;
+            /*-webkit-animation: an1 2s infinite linear;*/
+        }
+        .top2{
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 188px;
+            height: 94px;
+            margin-left: -94px;
+            border-radius: 0px 0px 94px 94px;
+            background-color: #f5f5f9;
+        }
+        #myCanvas{
+            /*width: 500px;*/
+            /*height: 500px;*/
+            position: absolute;
+            /*top: 0;*/
+        }
+        .exp{
+            position: relative;
+            width: 200px;
+            height: 100px;
+            border-radius: 100px 100px 0 0;
+            overflow: hidden;
+            background-color: #fff;
+            border: 2px solid #f5f5f9;
+            /*box-sizing: border-box;*/
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="circle"></div>
+        <div class="top"></div>
+    </div>
+    <div class="bottom">
+        <div class="circle2"></div>
+        <div class="top2"></div>
+    </div>
+    <div class="exp">
+
+        <canvas id="myCanvas" width="200" height="100"></canvas>
+    </div>
+</body>
+<script>
+    let c = document.getElementById('myCanvas');
+    let ctx = c.getContext('2d');
+    ctx.beginPath();
+    ctx.strokeStyle = "red";
+    ctx.lineWidth = 10;
+    ctx.arc(100,100,100,1*Math.PI,1.66*Math.PI,false);
+    ctx.stroke();
+</script>
+</html>
